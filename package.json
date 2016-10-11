@@ -7,5 +7,9 @@
     "jade": "*",
     "stylus": "*",
     "nib": "*"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jade": "^1.0.0"
   }
 }

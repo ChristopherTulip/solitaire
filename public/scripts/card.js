@@ -34,6 +34,13 @@ Card.prototype.isBlack = function() {
     return (this.suit == "Clubs" || this.suit == "Spades");
 };
 
+Card.prototype.isOneGreater = function(card) {
+    return (this.number == (card.number + 1) );
+};
+
+Card.prototype.isOneSmaller = function(card) {
+    return (this.number == (card.number - 1) );
+};
 
 Card.prototype.removeJQ = function() {
     this.JQ.remove();

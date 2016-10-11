@@ -2,14 +2,20 @@ doctype html
 head
   title #{title}
 
-  link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
   link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+
 body
-  header Let's play solitaire!
+  header.navbar.navbar-defaul
+    div.container
+      div.navbar-header
+        div.navbar-brand Solitaire
 
   block content
 
-  footer I'm a footer
+  footer.footer
+    div.container
+      div.text-muted I'm a footer
 
 script(type="text/javascript" src="scripts/jquery-3.1.1.min.js")
 script(type="text/javascript" src="scripts/board.js")
@@ -17,4 +23,5 @@ script(type="text/javascript" src="scripts/constants.js")
 script(type="text/javascript" src="scripts/card.js")
 script(type="text/javascript" src="scripts/rules.js")
 script(type="text/javascript" src="scripts/deck.js")
+script(type="text/javascript" src="scripts/foundation.js")
 script(type="text/javascript" src="scripts/game.js")

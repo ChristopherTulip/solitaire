@@ -4,8 +4,6 @@ function Deck(empty) {
 
     //private functions
     var generateCards = function generateCards () {
-
-
         for (var i = constants.SUITS.length - 1; i >= 0; i--) {
             for (var j = 13; j >= 1; j--) {
                 options = {

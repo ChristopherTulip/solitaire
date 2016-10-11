@@ -1,6 +1,9 @@
 function Game () {
   this.stock = new Deck(false);
   this.tray  = new Deck(true);
+
+  this.foundation = new Foundation();
+
   this.board = new Board();
 
   this.board.setUp( this.stock.deal(28) );
@@ -32,7 +35,6 @@ Game.prototype.moveToBoard = function(endColumn) {
     this.tray.cards.push( options.card );
     return false;
   }
-
 };
 
 Game.prototype.moveOnBoard = function(startRow, startColumn, endColumn) {
@@ -42,12 +44,22 @@ Game.prototype.moveOnBoard = function(startRow, startColumn, endColumn) {
     endColumn:    endColumn
   };
 
-  if ( rules.isValidMove( options ) ) {
+  if ( rules.canMoveOnBoard( options ) ) {
     this.board.move( options );
     return true;
-  }
+  };
 
   return false;
+};
+
+Game.prototype.moveToFoundation = function(startRow, startColumn, foundation) {
+  options = {
+    startColumn:  options.startColumn,
+  };
+
+  if ( rules.canMoveToFoundation(options) ) {
+    foundation.addCard( board.removeCard(column) );
+  };
 };
 
 game = new Game();

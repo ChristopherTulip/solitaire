@@ -13,11 +13,11 @@ function Board () {
 
   var revealTop = function revealTop () {
     columns.forEach( function (column, i, array) {
-      that.getLastCard(column).visible = true;
+      that.getTopCard(column).visible = true;
     });
   };
 
-  this.getLastCard = function getLastCard (column) {
+  this.getTopCard = function getTopCard (column) {
     return columns[ column ][ columns[ column ].length - 1 ];
   };
 
@@ -28,8 +28,10 @@ function Board () {
   this.getCards = function getCards (options) {
     startColumn   = options.startColumn;
     startRow      = options.startRow;
+    getTopCard   = options.getTopCard;
 
-    if (startRow == null) { return columns[startColumn]; }
+    if (startRow == null) { return columns[startColumn]; };
+    if (getTopCard != null) { return this.getTopCard(startColumn); };
 
     returnData = [];
 
@@ -74,6 +76,15 @@ function Board () {
     } else { // new card entry, no previous spot on the grid
       columns[endColumn].push( card );
     }
-
   };
+
+  this.removeCard = function (column) {
+    return this.getCards({startColumn: column}).pop();
+  }
+
+  this.isCardTop = function () {
+    //todo: write function;
+
+    false;
+  }
 };
